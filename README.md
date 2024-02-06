@@ -1,6 +1,7 @@
 # NODE LOGGING IS SLOW
 
-## Table of Contents
+
+## TABLE OF CONTENTS
 1. [INTRO](#intro)
 1. [PREREQUISITES](#prerequisites)
 2. [GETTING STARTED](#getting-started)
@@ -21,9 +22,11 @@ you will need the following:
 - `node`
 - `k6`
 
+
 ## GETTING STARTED <a name="getting-started"></a>
 - terminal one: `make start`
 - terminal two: `make test`
+
 
 ## RESULTS <a name="results"></a>
 running on my small machine, i see the following:
@@ -35,9 +38,10 @@ running on my small machine, i see the following:
 | 5                                     | 2700                |
 | 20                                    | 1300                |
 
+
 ## CONCLUSION <a name="conclusion"></a>
 - ☝ this is an empty HTTP handler - i.e. the best-case scenario
 - log less
-- or try a different logging solution
+- log to a file with an already acquired file handle - this is WAY faster
 - or perhaps use traces instead of logs (e.g. otel traces)
-- pino async logging is a red herring - it uses console.log under the hood but it does some batching
+- NB: `pino` "async" logging is a red herring - it uses console.log under the hood but it does some batching
